@@ -7,13 +7,13 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
-import java.util.Iterator;
 import java.util.Random;
 
 public class Runner {
 	
 	private static String fileName = "src/food_and_dragon/randomObjects.dat";
 	private static int size = 2;
+	private static boolean isFirst = true;
 
 	public static void main(String[] args) throws NonCapatilizedException {
 		
@@ -34,11 +34,19 @@ public class Runner {
 	public static void writeRandomObject(Object[] objectArray) {
 		Random random = new Random();
 		int index = random.nextInt(objectArray.length);
+		Object[] existedObjects;
+		
+		if(isFirst) {
+			existedObjects = new Object[size];
+			isFirst = false;
+		}else {
+			existedObjects = getExistedObjects();
+		}
 		
 		try (FileOutputStream file = new FileOutputStream(fileName);
 				ObjectOutputStream output = new ObjectOutputStream(file)) {
 
-			Object[] existedObjects = getExistedObjects();
+			
 			for(Object obj : existedObjects) {
 				if(obj != null) {
 					output.writeObject(obj);
