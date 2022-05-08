@@ -45,7 +45,6 @@ public class Runner {
 		
 		try (FileOutputStream file = new FileOutputStream(fileName);
 				ObjectOutputStream output = new ObjectOutputStream(file)) {
-
 			
 			for(Object obj : existedObjects) {
 				if(obj != null) {
@@ -54,7 +53,6 @@ public class Runner {
 			}
 			
 			output.writeObject(objectArray[index]);
-			
 
 		} catch (IOException e) {
 			System.out.println(e);
@@ -82,22 +80,15 @@ public class Runner {
 		}
 		return existedObjects;
 	}
-
+	
 	public static void readObjects() {
-		try (FileInputStream file = new FileInputStream(fileName);
-				ObjectInputStream input = new ObjectInputStream(file)) {
-
-			boolean hasObject = true;
-			do {
-				try {
-					System.out.println(input.readObject());
-				} catch (EOFException e) {
-					hasObject = false;
-				}
-			} while (hasObject);
-
-		} catch (IOException | ClassNotFoundException e) {
-			System.out.println(e);
+		Object[] existedObjects = getExistedObjects();
+		
+		for(Object obj : existedObjects) {
+			if(obj != null) {
+				System.out.println(obj);
+			}
 		}
+		
 	}
 }
