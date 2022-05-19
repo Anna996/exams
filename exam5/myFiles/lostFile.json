@@ -1,0 +1,53 @@
+[
+	{
+		"address": {
+			"street": "Atalantic BLVD",
+			"number": 230,
+			"state": "Alabama",
+			"city": "Montgomery"
+		},
+		"rooms": [
+			{
+				"width": 12.5,
+				"length": 10.2,
+				"hasAC": true
+			},
+			{
+				"width": 5.5,
+				"length": 10.7,
+				"hasAC": true
+			}
+		],
+		"hasYard": true,
+		"hasBasement": false,
+		"area": 1200.9
+	},
+	{
+		"address": {
+			"street": "Sunset BLVD",
+			"number": 555,
+			"state": "California",
+			"city": "Los Angeles"
+		},
+		"rooms": [
+			{
+				"width": 9.9,
+				"length": 10.9,
+				"hasAC": false
+			},
+			{
+				"width": 18.5,
+				"length": 11.2,
+				"hasAC": true
+			},
+			{
+				"width": 8.7,
+				"length": 13.1,
+				"hasAC": true
+			}
+		],
+		"hasYard": false,
+		"hasBasement": true,
+		"area": 1801.8
+	}
+]
